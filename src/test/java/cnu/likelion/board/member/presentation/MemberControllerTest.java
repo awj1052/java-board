@@ -1,11 +1,9 @@
 package cnu.likelion.board.member.presentation;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.linesOf;
 
 import cnu.likelion.board.ApiTest;
 import cnu.likelion.board.common.exception.ExceptionResponse;
-import cnu.likelion.board.member.domain.MemberRepository;
 import cnu.likelion.board.member.presentation.request.LoginRequest;
 import cnu.likelion.board.member.presentation.request.MemberSignupRequest;
 import cnu.likelion.board.member.presentation.response.LoginResponse;
@@ -19,7 +17,6 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 @SuppressWarnings("NonAsciiCharacters")
