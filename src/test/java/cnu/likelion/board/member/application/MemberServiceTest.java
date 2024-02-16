@@ -4,10 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import cnu.likelion.board.common.exception.ConflictException;
-import cnu.likelion.board.common.exception.NotFoundException;
 import cnu.likelion.board.common.exception.UnAuthorizedException;
-import cnu.likelion.board.member.domain.MemberRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -15,7 +12,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @SpringBootTest
 @DisplayName("회원 서비스 (MemberService) 은(는)")
 @SuppressWarnings("NonAsciiCharacters")
@@ -24,14 +23,6 @@ class MemberServiceTest {
 
     @Autowired
     private MemberService memberService;
-
-    @Autowired
-    private MemberRepository memberRepository;
-
-    @BeforeEach
-    void setUp() {
-        memberRepository.clear();
-    }
 
     @Nested
     class 회원가입_시 {

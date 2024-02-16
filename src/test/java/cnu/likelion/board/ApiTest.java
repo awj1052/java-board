@@ -10,7 +10,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
 
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 public abstract class ApiTest {
 
@@ -23,7 +26,6 @@ public abstract class ApiTest {
     @BeforeEach
     protected void setUp() {
         RestAssured.port = port;
-        memberRepository.clear();
     }
 
     public static Long ID를_추출한다(

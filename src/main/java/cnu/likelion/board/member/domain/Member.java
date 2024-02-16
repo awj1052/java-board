@@ -1,13 +1,17 @@
 package cnu.likelion.board.member.domain;
 
-import cnu.likelion.board.common.exception.UnAuthorizedException;
 import lombok.Getter;
 
+// TODO [5단계] Member 를 Entity로 만들어보자
 @Getter
 public class Member {
 
+    // TODO [5단계] 해당 값을 DB의 AUTO_INCREMENT 되는 PK로 설정한다.
     private Long id;
+
+    // TODO [5단계] 아이디는 unique 해야 한다
     private String username;
+
     private String password;
     private String name;
 
@@ -15,10 +19,6 @@ public class Member {
         this.username = username;
         this.password = password;
         this.name = name;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void signup(MemberValidator validator) {

@@ -15,7 +15,9 @@ import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @SpringBootTest
 @DisplayName("포스트 서비스 (PostService) 은(는)")
 @SuppressWarnings("NonAsciiCharacters")
@@ -39,8 +41,6 @@ class PostServiceTest {
 
     @BeforeEach
     void setUp() {
-        memberRepository.clear();
-        postRepository.clear();
         동훈_Id = memberService.signup("dong", "1234", "동훈");
         말랑_Id = memberService.signup("mallang", "1234", "말랑");
     }
