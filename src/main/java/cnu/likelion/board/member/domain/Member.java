@@ -1,5 +1,6 @@
 package cnu.likelion.board.member.domain;
 
+import cnu.likelion.board.common.exception.UnAuthorizedException;
 import lombok.Getter;
 
 @Getter
@@ -22,5 +23,11 @@ public class Member {
 
     public void signup(MemberValidator validator) {
         validator.validateDuplicatedUsername(username);
+    }
+
+    public void login(String password) {
+        if (!this.password.equals(password)) {
+            throw new UnAuthorizedException("비밀번호가 일치하지 않습니다.");
+        }
     }
 }

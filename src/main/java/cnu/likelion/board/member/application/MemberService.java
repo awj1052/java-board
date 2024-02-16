@@ -1,5 +1,6 @@
 package cnu.likelion.board.member.application;
 
+import cnu.likelion.board.common.exception.UnAuthorizedException;
 import cnu.likelion.board.member.domain.Member;
 import cnu.likelion.board.member.domain.MemberRepository;
 import cnu.likelion.board.member.domain.MemberValidator;
@@ -22,5 +23,15 @@ public class MemberService {
         member.signup(memberValidator);
         Member saved = memberRepository.save(member);
         return saved.getId();
+    }
+
+    public Long login(
+            String username,
+            String password
+    ) {
+        Member member = memberRepository.findByUsername(username)
+                .orElseThrow(() -> new UnAuthorizedException("존재하지 않는 아이디입니다."));
+        member.login(password);
+        return member.getId();
     }
 }
