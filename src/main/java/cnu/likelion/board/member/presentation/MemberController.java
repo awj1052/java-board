@@ -21,10 +21,6 @@ public class MemberController {
     // TODO [1단계] MemberService 를 의존성 주입 받으세요.
     private final MemberService memberService;
 
-    MemberController(MemberService memberService) {
-        this.memberService = memberService;
-    }
-
     // TODO [1단계] [ POST , /members ] 로 들어오는 요청에 대해 동작해야 합니다.
     @PostMapping("")
     public ResponseEntity<Void> signup(
