@@ -7,8 +7,8 @@ import cnu.likelion.board.member.domain.MemberValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;

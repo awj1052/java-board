@@ -34,9 +34,8 @@ public class MemberController {
     public ResponseEntity<LoginResponse> login(
             @Valid @RequestBody LoginRequest request
     ) {
-        // TODO [2단계] 회원 서비스를 사용하여 로그인을 진행합니다.
-        // TODO [2단계] 로그인 결과 반환된 Id를 가지고 Jwt(AccessToken)를 생성합니다.
-        // TODO [2단계] 생성한 accessToken을 LoginResponse로 감싸 반환합니다.
-        return null;
+        Long memberId = memberService.login(request.username(), request.password());
+        String accessToken = jwtService.createToken(memberId);
+        return ResponseEntity.ok(new LoginResponse(accessToken));
     }
 }
