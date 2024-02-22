@@ -26,7 +26,7 @@ public class MemberRepository {
     public Optional<Member> findByUsername(String username) {
         return members.values()
                 .stream()
-                .filter(value -> value.getUsername().equals(username))
+                .filter(item -> item.getUsername().equals(username))
                 .findAny();
     }
 
