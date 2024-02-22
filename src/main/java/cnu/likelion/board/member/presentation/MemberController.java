@@ -14,11 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 // TODO [1단계] 회원 컨드롤러를 RestController 빈으로 등록하세요.
 // TODO [1단계] /members 로 시작되는 URI에 대해 매핑되도록 합니다.
+@RestController
+@RequestMapping("/members")
 public class MemberController {
 
     // TODO [1단계] MemberService 를 의존성 주입 받으세요.
+    private final MemberService memberService;
+
+    MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     // TODO [1단계] [ POST , /members ] 로 들어오는 요청에 대해 동작해야 합니다.
+    @PostMapping("")
     public ResponseEntity<Void> signup(
             // TODO [1단계] Json 타입으로 들어오는 request Body를 매핑합니다.
             MemberSignupRequest request
