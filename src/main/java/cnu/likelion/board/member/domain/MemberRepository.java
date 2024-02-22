@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 // TODO [1단계] Repository 빈으로 등록하세요.
+@Repository
 public class MemberRepository {
 
     private final Map<Long, Member> members = new HashMap<>();

@@ -25,7 +25,7 @@ public class MemberController {
     @PostMapping
     public ResponseEntity<Void> signup(
             // TODO [1단계] Json 타입으로 들어오는 request Body를 매핑합니다.
-            MemberSignupRequest request
+            @RequestBody MemberSignupRequest request
     ) {
         // TODO [1단계] 회원 서비스를 사용하여 회원가입을 진행하세요
         // TODO [1단계] ResponseEntity.create(URI.create())를 활용하여,

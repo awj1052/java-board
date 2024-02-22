@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
 // TODO [1단계] Service 빈으로 등록하세요
+@Service
 public class MemberService {
 
     // TODO [1단계] MemberRepository와, MemberValidator를 의존성 주입 받습니다.
+    private MemberRepository memberRepository;
+    private MemberValidator memberValidator;
 
     public Long signup(
             String username,

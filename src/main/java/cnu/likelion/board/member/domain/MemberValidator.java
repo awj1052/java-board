@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
+@Component
 // TODO [1단계] Component 빈으로 등록하세요
 public class MemberValidator {
 
