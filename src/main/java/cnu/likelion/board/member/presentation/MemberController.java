@@ -22,7 +22,7 @@ public class MemberController {
     private final MemberService memberService;
 
     // TODO [1단계] [ POST , /members ] 로 들어오는 요청에 대해 동작해야 합니다.
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<Void> signup(
             // TODO [1단계] Json 타입으로 들어오는 request Body를 매핑합니다.
             MemberSignupRequest request
