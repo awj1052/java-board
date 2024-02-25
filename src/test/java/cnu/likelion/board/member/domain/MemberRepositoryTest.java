@@ -3,6 +3,7 @@ package cnu.likelion.board.member.domain;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Optional;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator.ReplaceUnderscores;
@@ -18,6 +19,11 @@ class MemberRepositoryTest {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @BeforeEach
+    void setUp() {
+        memberRepository.deleteAll();
+    }
 
     @Test
     void 주어진_회원에_Id를_세팅하고_저장한다() {
