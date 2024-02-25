@@ -21,7 +21,6 @@ public class AuthArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        // TODO [3단계] parameter가 Auth 애노테이션을 달고 있으며, Long 타입의 파라미터인 경우에 지원한다
         return parameter.hasParameterAnnotation(Auth.class)
                 && parameter.getParameterType().equals(Long.class);
     }

@@ -2,7 +2,6 @@ package cnu.likelion.board.member.domain;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
