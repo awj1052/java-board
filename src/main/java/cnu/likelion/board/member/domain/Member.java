@@ -26,7 +26,8 @@ public class Member {
     }
 
     public void login(String password) {
-        // TODO [2단계] 비밀번호가 일치하지 않으면 예외를 발생시킵니다.
-        // TODO [2단계] 발생하는 예외는 테스트를 참고합니다.
+        if (!password.equals(this.password)) {
+            throw new UnAuthorizedException("비밀번호가 일치하지 않습니다.");
+        }
     }
 }
