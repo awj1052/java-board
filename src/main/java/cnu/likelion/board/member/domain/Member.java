@@ -1,15 +1,25 @@
 package cnu.likelion.board.member.domain;
 
+import cnu.likelion.board.common.exception.UnAuthorizedException;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-// TODO [5단계] Member 를 Entity로 만들어보자
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class Member {
 
-    // TODO [5단계] 해당 값을 DB의 AUTO_INCREMENT 되는 PK로 설정한다.
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // TODO [5단계] 아이디는 unique 해야 한다
+    @Column(unique = true)
     private String username;
 
     private String password;
@@ -22,11 +32,12 @@ public class Member {
     }
 
     public void signup(MemberValidator validator) {
-        // TODO [1단계] validator를 통해 닉네임 중복 검증을 진행하세요
+        validator.validateDuplicatedUsername(username);
     }
 
     public void login(String password) {
-        // TODO [2단계] 비밀번호가 일치하지 않으면 예외를 발생시킵니다.
-        // TODO [2단계] 발생하는 예외는 테스트를 참고합니다.
+        if (!this.password.equals(password)) {
+            throw new UnAuthorizedException("비밀번호가 일치하지 않습니다.");
+        }
     }
 }

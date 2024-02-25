@@ -2,22 +2,33 @@ package cnu.likelion.board.post.domain;
 
 import cnu.likelion.board.common.exception.ForbiddenException;
 import cnu.likelion.board.member.domain.Member;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import java.time.LocalDateTime;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-// TODO [5단계] Post 를 Entity로 만들어보자 (Member 클래스를 먼저 진행하고 진행한다)
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class Post {
 
-    // TODO [5단계] 해당 값을 DB의 AUTO_INCREMENT 되는 PK로 설정한다.
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
     private String content;
     private LocalDateTime createdDate;
 
-    // TODO [5단계] Member 엔티티와의 연관관계를 설정한다. FK 컬럼명은 writer_id로 설정한다.
-    // TODO [5단계] 지연 로딩되도록 설정한다.
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "writer_id")
     private Member writer;
 
     public Post(String title, String content, Member writer) {
